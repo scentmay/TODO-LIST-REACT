@@ -1,0 +1,34 @@
+* {
+  margin:0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: #7d8282;
+	font-family: 'Edu SA Beginner', cursive;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.main-container {
+	min-height: 600px;
+	width: 500px;
+	margin-top: 10px;
+	background-color: white;
+	border: 4px solid black;
+	border-radius: 20px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	padding-left: 20px;
+	align-items: flex-start;
+	padding: 20px;
+	margin-top: 15px;
+}
+
+.input-container {
+	align-items: center;
+}
+
