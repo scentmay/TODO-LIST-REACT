@@ -16,7 +16,7 @@ function Task ({id, texto, completada, completarTarea, eliminarTarea}) {
 
 
     return(
-      <div className="tarea-global">
+      <div className="tarea-global" onMouseLeave={() => esconderIcono()}>
         <div className={ completada ? 'task completada' : 'task'}
           onClick={() => completarTarea(id)}
           onMouseEnter={() => mostrarIcono()}

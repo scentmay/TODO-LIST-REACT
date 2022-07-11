@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../styles/Input.css';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -7,11 +7,12 @@ function Input (props) {
 
   const [input, setInput] = useState('');
 
-  const manejarCambio = e => {
+
+  function manejarCambio (e) { 
     setInput(e.target.value);
   };
 
-  const manejarEnvio = e => {
+  function manejarEnvio(e) {
     e.preventDefault();
 
     const tareaNueva ={
@@ -19,11 +20,11 @@ function Input (props) {
       texto: input,
       completada: false
     }
-
+    e.target.reset(); // limpiamos el formulario!!
+    focus()           // Volvemos a poner el foco en el imput
+    
     props.onSubmit(tareaNueva);// este es el enlace de la tarea q pasamos como prop a la función agregarTarea, que se lanza al hacer submit
-
   }
-
 
   return(
     <form className="input-container" onSubmit={manejarEnvio}>
