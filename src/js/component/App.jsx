@@ -4,6 +4,10 @@ import Header from './Header.jsx';
 import Task from "./Task.jsx";
 import { useState } from 'react';
 import Input from './Input.jsx';
+import { crearBaseDeDatos } from '../conexionAPI';
+import { actualizarBaseDeDatos } from '../conexionAPI';
+
+crearBaseDeDatos();
 
 
 const App = () => {
@@ -12,10 +16,10 @@ const [tareas, setTareas] = useState([]);
 
 const agregarTarea = tarea => {
     /*
-    1.- verificamos que la tarea noe sté en blacno (vacía)
+    1.- verificamos que la tarea no esté en blanco (vacía)
     2.- eliminamos espacios en blanco
     3.- añadimos la tarea al principio del array
-    4.- actualziamos el valor de tareas con setareas gracias a la const intermedia que utilizamos (tareasActualizadas)
+    4.- actualizamos el valor de tareas con setTareas gracias a la const intermedia que utilizamos (tareasActualizadas)
     */
 
     if (tarea.texto.trim()) {
@@ -23,8 +27,10 @@ const agregarTarea = tarea => {
       
       const tareasActualizadas = [tarea, ...tareas]; // hacemos que la tarea recién introducida se muestre al principio, es decir, arriba del todo
       setTareas(tareasActualizadas);
+      console.log(tareasActualizadas);
+
+      actualizarBaseDeDatos(tareasActualizadas);
     }
-    console.log(tareas)
 };
 
 //Función que conmuta el estado de una tarea buscando por id
@@ -37,7 +43,6 @@ const completarTarea = id => {
     return tarea;
     })
   setTareas(tareasActualizadas);
-  
   };
 
 //Función para eliminar tarea por id
@@ -48,6 +53,7 @@ const eliminarTarea = id => {
   setTareas(tareasActualizadas);
   };
 
+  
 
   return (
 		<div>

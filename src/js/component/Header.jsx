@@ -1,7 +1,12 @@
 import React from 'react';
 import '../../styles/Header.css';
 
+
+//Este fichero crea el header y la conexión a la BBDD
+
+
 const Header = (props) => {
+    
     return(
       <div className='header'>
         <h1>{props.nombreApp} APP</h1>
@@ -9,5 +14,7 @@ const Header = (props) => {
       </div>
     );
 }
+
+
 
 export default Header;
