@@ -21,10 +21,16 @@ function Input (props) {
       completada: false
     }
     e.target.reset(); // limpiamos el formulario!!
-    focus()           // Volvemos a poner el foco en el input
+    focus();          // Volvemos a poner el foco en el input
     
+
+    console.log("hola");
     props.onSubmit(tareaNueva);// este es el enlace de la tarea q pasamos como prop a la función agregarTarea, que se lanza al hacer submit
   }
+
+ //--------------------------------------------------
+ //COMPONENTE
+
 
   return(
     <form className="input-container" onSubmit={manejarEnvio}>
@@ -38,8 +44,9 @@ function Input (props) {
       <button className="tarea-boton">
         Agregar Tarea
       </button>
-
     </form>
+
+    
   );
 }
 
